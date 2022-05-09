@@ -179,6 +179,7 @@ export default class App {
   }
 
   static getAllTickets() {
+    App.showLoading();
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://helpdeskbe.herokuapp.com/?method=allTickets');
     xhr.addEventListener('readystatechange', () => {
@@ -190,6 +191,24 @@ export default class App {
       }
     });
     xhr.send();
+  }
+
+  static showLoading() {
+    const table = document.getElementById('table');
+    table.innerHTML = `
+      <div class="loadingio-spinner-spin-g6050w4ymch">
+        <div class="ldio-msod7n1f0ms">
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+        </div>
+      </div>
+    `;
   }
 
   static getCurrentTime() {
